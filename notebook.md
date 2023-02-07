@@ -21,3 +21,12 @@ numpy调用BLAS
 课上不用slides直接讲. 可以用slides展示图. 
 
 老师review后 给我们, 会把我们的和他的比较. 
+
+### course3
+
+
+
+要展示解决的问题, 怎么解决的.
+
+不是everything, 而是重点的idea, 要展示出细节. 
+

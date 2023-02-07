@@ -29,7 +29,13 @@ MAGiQ stores the RDF graph as a sparse integer matrix, and translates SPARQL que
 1.  loading the input RDF graph, encoding its strings into numerical IDs, and building a bi-directional dic- tionary. The encoded graph is represented as a sparse square integer matrix
 2. MAGiQ translates SPARQL queries into matrix algebra programs,  the optimizer utilizes matrix algebra properties to reorder the operations to generate more efficient programs
 
+是怎么translates 的?
 
+怎么存储边? 是另外有个矩阵吗? 
+
+
+
+MAGiQ inherits the excellent scalability of the underlying libraries in terms of data size and the number of compute nodes. 
 
 
 
