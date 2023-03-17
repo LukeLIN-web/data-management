@@ -29,6 +29,25 @@ MAGiQ stores the RDF graph as a sparse integer matrix, and translates SPARQL que
 
 MAGiQ inherits the excellent scalability of the underlying libraries in terms of data size and the number of compute nodes. 
 
+
+
+
+
+## 4 SPARQL to Matrix Algebra
+
+### 4.1 Query Translation
+
+MAGiQ如何将无常量的非循环图查询（即树查询）转化为矩阵代数程序；我们在4.2节中描述了具有循环和常量的查询所需的修改。首先，以深度优先方式遍历查询图的无向版本，生成一个闭合行走（第3行），使连接非叶节点的边出现两次：一次是向下遍历树时，一次是回溯时。在DFS-walk中，当发现一条边时，将其标记为前向边，而在回溯时遇到的边则标记为后向边。然后，提取的行走（Query-Translation中的qwalk）通过第4-21行中的循环引导程序生成。
+
+```
+```
+
+生成的绑定矩阵对应于在RDF图中具有谓词p的入边节点，或者是A′中的行。qwalk中类型为forward的边会导致一个 ⊗ 操作，其中第一个操作数是前一个变量w1的绑定的选择矩阵，如果当前边e和前一条边pe共享相同的查询变量作为第一个节点（第13-17行）。否则，选择矩阵中使用pe的第二个变量的绑定（第16行）。如果qwalk中的边的方向与有向查询图中相应边的方向不匹配，则下一个绑定是具有指向先前绑定的出边的节点，或等效地是A′中的行；因此，在A′上进行行选择（第17行）。最后，类型为back的边在正在考虑的绑定矩阵上进行列选择，以消除另一个选择无效的绑定（第18-19行）。
+
+
+
+
+
 ## 实验
 
 we demonstrate how MAGiQ can effortlessly be ported on a variety of architectures such as Intel CPUs, NVIDIA GPU
@@ -72,3 +91,13 @@ V100
 1. 
 
 MQ_TWOCB MQ_TWOCM ?啥意思?
+
+### cublas
+
+cuBLAS库用于进行矩阵运算，它包含两套API，一个是常用到的cuBLAS API，需要用户自己分配GPU内存空间，按照规定格式填入数据，；还有一套CUBLASXT API，可以分配数据在CPU端，然后调用函数，它会自动管理内存、执行计算。既然都用cuda了，其实还是用第一套API多一点。
+
+现在装好cuda会自带cuBLAS库的，只要include [头文件](https://www.zhihu.com/search?q=头文件&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"article"%2C"sourceId"%3A"438551588"})“cublas_v2.h”就可以调用它了.2021.11
+
+cuBLAS采用的是列优先的存储
+
+银河系CUDA编程指南(1)——用cuBLAS库进行一个简单矩阵乘法计算 - Meddle的文章 - 知乎 https://zhuanlan.zhihu.com/p/427262454
