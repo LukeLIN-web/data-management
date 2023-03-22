@@ -66,11 +66,25 @@ CombBLAS是啥?  Combinatorial BLAS (CombBLAS) 是一个可扩展的分布式内
 
 #### 代码
 
-https://github.com/fjamour/MAGiQ
+https://github.com/Samir55/MAGIQ 
+
+
 
 https://github.com/DrTimothyAldenDavis/GraphBLAS
 
 https://github.com/PASSIONLab/CombBLAS
+
+The folder doesn't have the massive datasets (0.5 trillion edges) because those are too large and we only kept them on the supercomputer storage for a while. I believe the data generator and the scalable encoder we've written are in the folder. Unfortunately, the organization of the content isn't ideal, although I believe you will find your way through (with enough persistence :]).
+
+Regarding the lubm320_nomultiedges, I believe this is the dataset you will want to use: [https://www.dropbox.com/home/Fuad_Cloud/Research/Matrix-Algebra/code/MAGIC/data/nomultiedges/lubm320_nomultiedges?preview=encoded.nt](https://urldefense.com/v3/__https://www.dropbox.com/home/Fuad_Cloud/Research/Matrix-Algebra/code/MAGIC/data/nomultiedges/lubm320_nomultiedges?preview=encoded.nt__;!!Nmw4Hv0!2TwRbPfXUquLJHeM8oQmpRzU8GoMFezf63SJzsdFsrjholGUlp62YCDL_4XVypJQSBtJORP8MEA0EjQQrSVwhGGepRCVRQ$). 
+
+The way this file was created is we first used the LUBM data generator ([https://www.dropbox.com/home/Fuad_Cloud/Research/Matrix-Algebra/disorganized/shaheen_backup_my_code/trill_exp/lubm-uba](https://urldefense.com/v3/__https://www.dropbox.com/home/Fuad_Cloud/Research/Matrix-Algebra/disorganized/shaheen_backup_my_code/trill_exp/lubm-uba__;!!Nmw4Hv0!2TwRbPfXUquLJHeM8oQmpRzU8GoMFezf63SJzsdFsrjholGUlp62YCDL_4XVypJQSBtJORP8MEA0EjQQrSVwhGFIeH8RVw$)), which generates an actual RDF dataset, then we used an encoder to produce the integer coded nodes and edges. There is the encoder that you can use through the interface (the one you pointed to in your email), and there is a large scale encoder that scales to very large graphs ([https://www.dropbox.com/home/Fuad_Cloud/Research/Matrix-Algebra/disorganized/shaheen_backup_my_code/trill_exp/paracoder/src](https://urldefense.com/v3/__https://www.dropbox.com/home/Fuad_Cloud/Research/Matrix-Algebra/disorganized/shaheen_backup_my_code/trill_exp/paracoder/src__;!!Nmw4Hv0!2TwRbPfXUquLJHeM8oQmpRzU8GoMFezf63SJzsdFsrjholGUlp62YCDL_4XVypJQSBtJORP8MEA0EjQQrSVwhGFY3856bQ$)). 如果您想从头开始生成数据集，我建议您从 lubm-uba 生成器开始，然后使用 paracoder 工具。paracoder 工具生成一堆文件，您可以将这些文件与 paramerge 组合。尽管这些工具旨在在 Shaheen 上执行，但您也可以在桌面上使用它们。 
+
+
+
+
+
+
 
 ### 目标
 
@@ -82,13 +96,7 @@ https://docs.nvidia.com/cuda/cublas/
 
 https://docs.nvidia.com/cuda/cublas/index.html#example-code
 
-让他运行在cuda project中. 
-
-V100
-
-代码结构
-
-1. 
+让他运行在cuda project中.  V100
 
 MQ_TWOCB MQ_TWOCM ?啥意思?
 
@@ -101,3 +109,6 @@ cuBLAS库用于进行矩阵运算，它包含两套API，一个是常用到的cu
 cuBLAS采用的是列优先的存储
 
 银河系CUDA编程指南(1)——用cuBLAS库进行一个简单矩阵乘法计算 - Meddle的文章 - 知乎 https://zhuanlan.zhihu.com/p/427262454
+
+
+
