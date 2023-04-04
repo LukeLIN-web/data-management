@@ -6,6 +6,8 @@ https://dl.acm.org/doi/10.1145/3302424.3303962
 
 MAGiQ represents the RDF graph as a sparse matrix and defines a domain-specific language of algebraic operations.
 
+博士最后一个项目, 去了 UCR当博后, 现在在AWS 做软件开发. 
+
 ## 1introduction
 
 We propose MAGiQ1: a matrix algebra framework for implementing SPARQL query engines.
@@ -29,6 +31,18 @@ MAGiQ stores the RDF graph as a sparse integer matrix, and translates SPARQL que
 
 MAGiQ inherits the excellent scalability of the underlying libraries in terms of data size and the number of compute nodes. 
 
+我们需要哪些操作. 
+
+1. 生成对角矩阵,矩阵乘法, 
+
+### 3
+
+### 3.1
+
+讲了 Predicate selection matrix 是什么? 
+
+
+
 
 
 
@@ -45,6 +59,10 @@ MAGiQ如何将无常量的非循环图查询（即树查询）转化为矩阵代
 生成的绑定矩阵对应于在RDF图中具有谓词p的入边节点，或者是A′中的行。qwalk中类型为forward的边会导致一个 ⊗ 操作，其中第一个操作数是前一个变量w1的绑定的选择矩阵，如果当前边e和前一条边pe共享相同的查询变量作为第一个节点（第13-17行）。否则，选择矩阵中使用pe的第二个变量的绑定（第16行）。如果qwalk中的边的方向与有向查询图中相应边的方向不匹配，则下一个绑定是具有指向先前绑定的出边的节点，或等效地是A′中的行；因此，在A′上进行行选择（第17行）。最后，类型为back的边在正在考虑的绑定矩阵上进行列选择，以消除另一个选择无效的绑定（第18-19行）。
 
 
+
+ 
+
+bind matrix就是, 先 单位矩阵 * a, 然后做矩阵乘法. 
 
 
 
@@ -68,9 +86,9 @@ CombBLAS是啥?  Combinatorial BLAS (CombBLAS) 是一个可扩展的分布式内
 
 https://github.com/Samir55/MAGIQ 
 
-
-
 https://github.com/DrTimothyAldenDavis/GraphBLAS
+
+GraphBLAS能用在GPU吗? 
 
 https://github.com/PASSIONLab/CombBLAS
 
@@ -82,9 +100,13 @@ The way this file was created is we first used the LUBM data generator ([https:/
 
 
 
+你理解到哪里了, 你的目标是什么? 
 
+aws工业界的代码也会很糟糕. 
 
+可以在matlab里写c 代码, 可以用chatgpt翻译matlab到torch 
 
+torch 怎么修改 sortrows? 
 
 ### 目标
 
@@ -96,7 +118,7 @@ https://docs.nvidia.com/cuda/cublas/
 
 https://docs.nvidia.com/cuda/cublas/index.html#example-code
 
-让他运行在cuda project中.  V100
+让他运行在cuda project中.  V100.
 
 MQ_TWOCB MQ_TWOCM ?啥意思?
 
