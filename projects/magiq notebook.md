@@ -134,3 +134,10 @@ cuBLAS采用的是列优先的存储
 
 
 
+run 5 years matlab codes, use https://www.dropbox.com/scl/fo/okimcovxqaitywx76lc5a/h/code/MAGIC/data/watdiv100M?dl=0&subfolder_nav_tracking=1 ,  .nt is encoded graph,  we use .q_encoded to query as input , and find output. 
+
+```
+encode.nt has graph.
+I should write all intermediate results , send the file to you . 
+```
+
