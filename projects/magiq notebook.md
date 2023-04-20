@@ -141,3 +141,14 @@ encode.nt has graph.
 I should write all intermediate results , send the file to you . 
 ```
 
+
+
+first 100 values.
+
+{
+
+'h120':  1, 2,3 
+
+'hJ2' :  2,3,4
+
+}
