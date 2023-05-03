@@ -43,24 +43,13 @@ MAGiQ inherits the excellent scalability of the underlying libraries in terms of
 
 
 
-
-
-
-
 ## 4 SPARQL to Matrix Algebra
 
 ### 4.1 Query Translation
 
 MAGiQ如何将无常量的非循环图查询（即树查询）转化为矩阵代数程序；我们在4.2节中描述了具有循环和常量的查询所需的修改。首先，以深度优先方式遍历查询图的无向版本，生成一个闭合行走（第3行），使连接非叶节点的边出现两次：一次是向下遍历树时，一次是回溯时。在DFS-walk中，当发现一条边时，将其标记为前向边，而在回溯时遇到的边则标记为后向边。然后，提取的行走（Query-Translation中的qwalk）通过第4-21行中的循环引导程序生成。
 
-```
-```
-
 生成的绑定矩阵对应于在RDF图中具有谓词p的入边节点，或者是A′中的行。qwalk中类型为forward的边会导致一个 ⊗ 操作，其中第一个操作数是前一个变量w1的绑定的选择矩阵，如果当前边e和前一条边pe共享相同的查询变量作为第一个节点（第13-17行）。否则，选择矩阵中使用pe的第二个变量的绑定（第16行）。如果qwalk中的边的方向与有向查询图中相应边的方向不匹配，则下一个绑定是具有指向先前绑定的出边的节点，或等效地是A′中的行；因此，在A′上进行行选择（第17行）。最后，类型为back的边在正在考虑的绑定矩阵上进行列选择，以消除另一个选择无效的绑定（第18-19行）。
-
-
-
- 
 
 bind matrix就是, 先 单位矩阵 * a, 然后做矩阵乘法. 
 
@@ -76,11 +65,7 @@ our versions of MAGiQ with different back-end libraries: SuiteSparse, Matlab- CP
 
 MAGiQ (Matlab-GPU) uses multiple CPU threads while MAGiQ (Matlab-GPU) uses a single GPU.
 
-他是怎么用GPU的? 
-
 CombBLAS是啥?  Combinatorial BLAS (CombBLAS) 是一个可扩展的分布式内存并行图形库，提供了一组小型但功能强大的线性代数原语，专门针对图形分析。
-
-
 
 #### 代码
 
@@ -114,8 +99,6 @@ We neee to use CuBlas from nvidia instead of Comblas or graphblas
 
 https://github.com/nvidia/cudalibrarysamples
 
-https://docs.nvidia.com/cuda/cublas/
-
 https://docs.nvidia.com/cuda/cublas/index.html#example-code
 
 让他运行在cuda project中.  V100.
@@ -142,13 +125,3 @@ I should write all intermediate results , send the file to you .
 ```
 
 
-
-first 100 values.
-
-{
-
-'h120':  1, 2,3 
-
-'hJ2' :  2,3,4
-
-}
