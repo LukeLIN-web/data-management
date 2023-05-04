@@ -10,7 +10,7 @@ MAGiQ represents the RDF graph as a sparse matrix and defines a domain-specific 
 
 ## 1introduction
 
-We propose MAGiQ1: a matrix algebra framework for implementing SPARQL query engines.
+We propose MAGiQ: a matrix algebra framework for implementing SPARQL query engines.
 
 稀疏矩阵乘法作为第三个范式. 
 
@@ -40,8 +40,6 @@ MAGiQ inherits the excellent scalability of the underlying libraries in terms of
 ### 3.1
 
 讲了 Predicate selection matrix 是什么? 
-
-
 
 ## 4 SPARQL to Matrix Algebra
 
@@ -114,8 +112,6 @@ cuBLAS库用于进行矩阵运算，它包含两套API，一个是常用到的cu
 cuBLAS采用的是列优先的存储
 
 银河系CUDA编程指南(1)——用cuBLAS库进行一个简单矩阵乘法计算 - Meddle的文章 - 知乎 https://zhuanlan.zhihu.com/p/427262454
-
-
 
 run 5 years matlab codes, use https://www.dropbox.com/scl/fo/okimcovxqaitywx76lc5a/h/code/MAGIC/data/watdiv100M?dl=0&subfolder_nav_tracking=1 ,  .nt is encoded graph,  we use .q_encoded to query as input , and find output. 
 
