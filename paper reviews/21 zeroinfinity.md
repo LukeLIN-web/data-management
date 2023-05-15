@@ -32,3 +32,10 @@
 
 
 
+可以看author的 slide和video.
+
+AI内存两年翻一倍.  但是transformer size 两年240倍. 
+
+用CPU更新参数, 因为to GPU 成本比更新参数成本大. 
+
+Azure团队做的. 
