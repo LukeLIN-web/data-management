@@ -32,10 +32,6 @@
 2. Chord's decentralization ensures that every node functions as a root, eliminating root hotspots. Communication costs and the state maintained by each node scale logarithmically with the number of Chord nodes.
 3. The maintenance of failures and successor lists on each node ensures fault tolerance.
 
-
-
-
-
 P2P,  下载了歌, 就可以被别人下载. 所以受欢迎的歌可以更快找到, 给别人下载.  也就是bit 种子. 退出时会告诉successor. bit种子, 是可以找很多人下载, 每个人下载一部分, 你可以更快, 别人节省了带宽. 
 
 网速变快了, 没人用迅雷了, 没人下载了, 都在线看. 文字也没人看了. 都看视频了.

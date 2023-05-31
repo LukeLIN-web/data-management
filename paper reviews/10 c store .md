@@ -67,13 +67,9 @@ C-Store 通过上述的把一列存储多份，然后实现了恢复机制，来
 
 ​    最后，基于行的[执行程序](https://www.zhihu.com/search?q=执行程序&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"article"%2C"sourceId"%3A"121070567"})有一个内部循环，通过该循环检查输出中的记录的有效性。于是，这个内循环的开销是可以按每条记录的检查次数来估算的。而在[列存储](https://www.zhihu.com/search?q=列存储&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"article"%2C"sourceId"%3A"121070567"})中，基本操作就是检索列然后过滤出符合条件的项。于是，内循环的开销是按每列检查来支付而不是每行一次性检查。这样的话，列存的执行器在CPU上更高效，从磁盘中检索的数据也越少。在很多真实环境中，列存比行存快50-100倍。
 
-
-
 main assumption是 数据在disk上.  当然也有很多in memory DB  ,比如 monet DB. 
 
-Join Indices 就是pre compute的join, 
-
-VERTICA公司. 
+Join Indices 就是pre compute的join,  VERTICA公司. 
 
  pre的技能.  千万不能暴露你不懂, 就选你最懂的讲. 不懂的都不讲.  不用覆盖所有的!!  做多错多, 差的宁可不做. 也就是不要灌水的思想. 
 

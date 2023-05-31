@@ -63,8 +63,6 @@ TensorFlow Serving是非常高性能的基础设施。你能够在自己的服�
 
 优势 : start early. Deploy tensorflow product. 
 
+超算中 计算图优化,  
 
-
-10年前david keys有个博士, 做了 类似的, 超算中 计算图优化, 
-
-kaust  地方很小, 很多不同领域 交叉的聊天机会.  组和组差距很大, 你很少和别
+地方很小, 很多不同领域 交叉的聊天机会.  组和组差距很大, 你很少和别人聊天.

@@ -36,10 +36,6 @@
 
 只执行一部分model.
 
-
-
-演讲.
-
 ## **动机**
 
 现在的模型越来越大，训练样本越来越多，每个样本都需要经过模型的全部计算，这就导致了训练成本的[平方级](https://www.zhihu.com/search?q=平方级&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"article"%2C"sourceId"%3A"335024684"})增长。
@@ -70,8 +66,6 @@ Swith Transformer 在论文中提到其设计的指导原则是——**尽可能
 
 下图展示了在同样的计算开销下，增大 experts 个数带来的性能提升：figure 4 
 
-
-
 Combining expert, model and data parallelism
 
 不同颜色, split data.  
@@ -88,9 +82,7 @@ expert and data , 所有核平分全局data.each core has its own expert .  只�
 
 Expert并行实际上就是一种算子间的并行，[experts](https://www.zhihu.com/search?q=experts&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra={"sourceType"%3A"answer"%2C"sourceId"%3A"1676632982"})在计算图上是个多并行子图分支，每个分支是一个FFN结构。在FFN内部，再进一步进行算子级的模型并行。
 
-
-
-## **难点**
+#### **难点**
 
 听起来这个方法其实还是很直接的，那么为什么之前没有人做呢？主要因为以下几点：
 
@@ -101,8 +93,6 @@ Expert并行实际上就是一种算子间的并行，[experts](https://www.zhih
 - 模型容量对大数据集比较重要，现有的工作都是在类似cifar10之类的数据上做的，很难有好效果。
 
 It is common to mix both model and data parallelism for large scale models, which was done in the largest T5 models (Raffel et al., 2019; Xue et al., 2020) and in GPT-3 (Brown et al., 2020)
-
-
 
 互联网很重要, 数据处理很重要. 爬虫技术很重要. 
 
